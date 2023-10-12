@@ -56,6 +56,39 @@ document.getElementById("submit-one").onclick=function(){
     }
 }
 
+document.getElementById("grade-submit").onclick =function(){
+    let check_grade=document.getElementById("grade-input").value
+    let gradeElement = document.getElementById("show-grade");
+
+    switch(check_grade){
+        case "A":
+            gradeElement.innerHTML="Fantastic work! Job well done!"
+            break;
+        
+        case "B":
+            gradeElement.innerHTML="Nice work though!"
+            break;
+        
+        case "C":
+            gradeElement.innerHTML="Satisfactory!"
+            break;
+        
+        case "D":
+            gradeElement.innerHTML="Somehow dodged a bullet!"
+            break;
+        
+        case "F":
+            gradeElement.innerHTML="Mission failed!"
+            break;
+
+        default:
+            gradeElement.innerHTML="What?!!"
+        
+        
+        
+    }
+
+}
 
 
 
