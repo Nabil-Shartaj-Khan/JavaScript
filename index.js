@@ -54,6 +54,9 @@ document.getElementById("submit-one").onclick=function(){
     else{
         messageElement.innerHTML="Check it! Its not that hard";
     }
-    
-    
 }
+
+
+
+
+
