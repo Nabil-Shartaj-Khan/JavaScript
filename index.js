@@ -83,12 +83,13 @@ document.getElementById("grade-submit").onclick =function(){
 
         default:
             gradeElement.innerHTML="What?!!"
-        
-        
-        
+        }
     }
+let name="Nabil";
+let age=23;
+let home="Dhaka"
 
-}
+console.log(`Hello ${name}, I see you live in ${home} and you are ${age} years old`)
 
 
 
