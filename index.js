@@ -91,6 +91,48 @@ let home="Dhaka"
 
 console.log(`Hello ${name}, I see you live in ${home} and you are ${age} years old`)
 
+//rest function
+
+let a=5
+let b=2
+let c=4
+let d=7
+
+function(sum(...numbers)){
+    let sum=0;
+    for(let number of numbers){
+        total+=number
+    }
+    return number
+}
+
+const numbers = [1, 2, 3, 4, 5];
+function logElement(x) {
+    console.log(x);
+  }
+numbers.forEach(logElement);
+  
+
+let numbers=[1,2,3,4,5];
+let result=numbers.map(square)
+
+result.forEach(print)
+function square(x){
+    return Math.pow(x,2)
+}
+function print(x){
+    console.log(x)
+
+}
+
+let ages = [18, 21, 14, 16, 78, 54, 90];
+
+let newAges = ages.filter((x) => x < 18);
+newAges.forEach((x) => console.log(x));   
 
 
+const new=(name,age)=>{
+    console.log(`Hello ${name}, You're ${age} years old.`)
+}
 
+new("nabil","23");
