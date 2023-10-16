@@ -136,3 +136,91 @@ const new=(name,age)=>{
 }
 
 new("nabil","23");
+
+
+
+const store = new Map([
+    ["Boots", 20], ["Jersey", 30], ["Shorts", 35], ["Watch", 15], ["Jeans", 30]
+  ]);
+  
+  store.forEach((price, prod) => console.log(`${prod}-$${price}`));
+
+
+  class Nabil{
+
+    static familyMember=0 
+    constructor(name,age,height){
+        this.name=name;
+        this.age=age
+        this.height=height
+        Nabil.familyMember+=1
+    }
+    playing(){
+        console.log("Are you playing?")
+    }}
+
+  const nabil1= new Nabil("Shartaz",21,180)
+  const nabil2= new Nabil("Nabil",22,182)
+  const nabil3= new Nabil("Orion",23,183)
+
+  console.log(nabil1.name)
+  console.log(nabil1.age)
+  console.log(nabil1.height)
+  console.log(Nabil.familyMember)
+  
+  nabil1.playing()
+
+
+class Animal {
+    constructor(name,age,size){
+        this.name=name
+        this.age=age
+        this.size=size
+    }
+    isAlive=true
+    eat(){
+        console.log(`This ${this.name} is eating now!`)
+    }
+    sleep(){
+        console.log(`This ${this.name} is sleeping now!`)
+
+    }
+}
+
+class Rabbit extends Animal{
+    constructor(name,age,size,runspeed){
+        super(name,age,size)
+        this.runspeed=runspeed
+    }
+    run(){
+        console.log(`This ${this.name} is running`)
+    }
+}
+class Bird extends Animal{
+    constructor(name,age,size,flyspeed){
+        super(name,age,size)
+        this.flyspeed=flyspeed
+    }
+    fly(){
+        console.log(`This ${this.name} is flying`)
+    }
+}
+
+const rabbit=new Rabbit("CutieRabbit",20,"Small","Fast");
+const bird=new Bird("Tweetie",21,"Medium","Fast");
+
+console.log(rabbit.isAlive)
+console.log(rabbit.name)
+console.log(rabbit.age)
+console.log(rabbit.runspeed)
+console.log(bird.size)
+rabbit.sleep()
+rabbit.run()
+bird.eat()
+bird.sleep()
+bird.fly()
+
+
+
+
+
