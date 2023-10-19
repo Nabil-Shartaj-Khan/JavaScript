@@ -1,3 +1,4 @@
+import { pi,getCircumference,getArea } from "./math_util";}
 // console.log("This is the beginning")
 // window.alert("Are you ready?")
 
@@ -221,6 +222,87 @@ bird.sleep()
 bird.fly()
 
 
+class Car {
+    constructor(power) {
+        this._power = power; 
+    }
+    get power() {
+        return this._power;
+    }
+}
+
+let car = new Car(400);
+console.log(car.power);
+
+
+class Car{
+    constructor(model,color,year){
+        this.model=model;
+        this.color=color;
+        this.year=year;
+    }    
+}
+
+class Car{
+    constructor(model,color,year){
+        this.model=model;
+        this.color=color;
+        this.year=year;
+    }    
+}
+
+const car1= new Car("Lambo","Green",2021)
+const car2= new Car("Mercedes","Red",2023)
+const car3= new Car("Toyota","Yellow",2020)
+const car4= new Car("Bugatti","Black",2018)
+
+function displayCarInfo(x){
+    console.log(`Selected car is ${x.model}. It is ${x.color} and It was made in ${x.year}`)
+}
+function displayCarChangeInfo(car,color){
+  console.log(`You changed the color for ${car.model} to ${car.color}`)
+}
+
+displayCarChangeInfo(car4)
+displayCarInfo(car2)
+
+//set time out, set interval
+
+const wait = (time) => new Promise((resolve) => {
+    setTimeout(resolve, time);
+});
+
+wait(3000).then(() => console.log("Thanks for waiting"));
 
 
 
+async function loadFile(){
+    let fileLoad=false;
+
+    if (fileLoad){
+        return "File is loaded"
+    }
+    else{
+        throw "File not loaded"
+    }
+}
+
+async function startProcess(){
+    try{
+        let message= await loadFile();
+        console.log(message)
+    }
+
+    catch(error){
+        console.log(error)
+
+        }
+}
+startProcess();
+
+Element=document.body
+Element.title="JavaScript Basics";
+
+
+let title=document.querySelector("#headtitle");
+title.style.backgroundColor="lightered"
