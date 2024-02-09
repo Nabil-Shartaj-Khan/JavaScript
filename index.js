@@ -43,19 +43,23 @@ import { pi,getCircumference,getArea } from "./math_util";}
 //     document.getElementById("age-show").innerHTML = message;
 // }
 
+//indexof,slice,replace,touppercase,tolowercase,split,tostring,
 
 
-document.getElementById("submit-one").onclick=function(){
-    let check_status=document.getElementById("type")
+document.getElementById("submit-one").onclick = handleClick;
+
+function handleClick() {
+    let check_status = document.getElementById("type");
     let messageElement = document.getElementById("message");
     
-    if (check_status.checked){
-        messageElement.innerHTML="You checked it!";
-    }
-    else{
-        messageElement.innerHTML="Check it! Its not that hard";
-    }
+    messageElement.textContent = check_status && check_status.checked ? "You checked it!" : "Check it! Its not that hard";
 }
+
+document.getElementById("parent-element").addEventListener("click", function(event) {
+    if (event.target.id === "submit-one") {
+        handleClick();
+    }
+});
 
 document.getElementById("grade-submit").onclick =function(){
     let check_grade=document.getElementById("grade-input").value
@@ -306,3 +310,288 @@ Element.title="JavaScript Basics";
 
 let title=document.querySelector("#headtitle");
 title.style.backgroundColor="lightered"
+
+// ...............................
+
+class Human {
+    constructor(name, age, height, gender) {
+        this.name = name;
+        this.age = age;
+        this.height = height;
+        this.gender = gender;
+    }
+
+    displayDetails() {
+        console.log(`This person's name is ${this.name}. He/she is ${this.age} years old. His/Her height is ${this.height} and gender is ${this.gender}`);
+    }
+}
+
+const human1 = new Human("Nabil", "24", "180 CM", "Male");
+
+human1.displayDetails();
+
+
+// ***********************************************************************************************
+
+class Animal{
+
+    alive = true;
+
+    eat(){
+        console.log(`This ${this.name} is eating`);
+    }
+    sleep(){
+        console.log(`This ${this.name} is sleeping`);
+    }
+}
+
+class Rabbit extends Animal{
+
+    name = "rabbit";
+
+    run(){
+        console.log(`This ${this.name} is running`);
+    }
+}
+
+class Fish extends Animal{
+
+    name = "fish";
+
+    swim(){
+        console.log(`This ${this.name} is swimming`);
+    }
+}
+
+class Hawk extends Animal{
+    
+    name = "hawk";
+
+    fly(){
+        console.log(`This ${this.name} is flying`);
+    }
+}
+
+const rabbit = new Rabbit();
+const fish = new Fish();
+const hawk = new Hawk();
+
+console.log(rabbit.alive);
+rabbit.eat();
+rabbit.sleep();
+rabbit.run();
+
+// **********************************************************************************************************************
+
+//super keyword
+
+class Animal{
+
+    constructor(name, age){
+        this.name = name;
+        this.age = age;
+    }
+
+    move(speed){
+        console.log(`The ${this.name} moves at a speed of ${speed}mph`);
+    }
+}
+
+class Rabbit extends Animal{
+
+    constructor(name, age, runSpeed){
+        super(name, age);
+        this.runSpeed = runSpeed;
+    }
+
+    run(){
+        console.log(`This ${this.name} can run`);
+        super.move(this.runSpeed);
+    }
+}
+
+class Fish extends Animal{
+    
+    constructor(name, age, swimSpeed){
+        super(name, age);
+        this.swimSpeed = swimSpeed;
+    }
+
+    swim(){
+        console.log(`This ${this.name} can swim`);
+        super.move(this.swimSpeed);
+    }
+}
+
+class Hawk extends Animal{
+    
+    constructor(name, age, flySpeed){
+        super(name, age);
+        this.flySpeed = flySpeed;
+    }
+
+    fly(){
+        console.log(`This ${this.name} can fly`);
+        super.move(this.flySpeed);
+    }
+}
+
+const rabbit = new Rabbit("rabbit", 1, 25);
+const fish = new Fish("fish", 2, 12);
+const hawk = new Hawk("hawk", 3, 50);
+
+rabbit.run();
+fish.swim();
+hawk.fly();
+
+// ***************************************************************************************************
+
+//getters and setters 
+
+class Person{
+
+    constructor(firstName, lastName, age){
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+    }
+
+    set firstName(newFirstName){
+        if(typeof newFirstName === "string" && newFirstName.length > 0){
+            this._firstName = newFirstName;
+        }
+        else{
+            console.error("First name must be a non-empty string");
+        }
+    }
+
+    set lastName(newLastName){
+        if(typeof newLastName === "string" && newLastName.length > 0){
+            this._lastName = newLastName;
+        }
+        else{
+            console.error("Last name must be a non-empty string");
+        }
+    }
+
+    set age(newAge){
+        if(typeof newAge === "number" && newAge >= 0){
+            this._age = newAge;
+        }
+        else{
+            console.error("Age must be a non-negative number");
+        }
+    }
+    
+    get firstName(){
+        return this._firstName;
+    }
+
+    get lastName(){
+        return this._lastName;
+    }
+
+    get fullName(){
+        return this._firstName + " " + this._lastName;
+    }
+
+    get age(){
+        return this._age;
+    }
+}
+
+const person = new Person("Spongebob", "Squarepants", 30);
+
+console.log(person.firstName);
+console.log(person.lastName);
+console.log(person.fullName);
+console.log(person.age);
+
+// ***********************************************************************************
+// destructuring =  extract values from arrays and objects,
+//                              then assign them to variables in a convenient way
+//                              [] = to perform array destructuring
+//                              {} = to perform object destructuring
+
+// ---------- EXAMPLE 1 ----------
+// SWAP THE VALUE OF TWO VARIABLES
+
+let a = 1;
+let b = 2;
+
+[a, b] = [b, a];
+
+console.log(a);
+console.log(b);
+
+// ---------- EXAMPLE 2 ----------
+// SWAP 2 ELEMENTS IN AN ARRAY
+
+const colors = ['red', 'green', 'blue', 'black', 'white'];
+
+[colors[0], colors[4]] = [colors[4], colors[0]]
+
+console.log(colors);
+
+// ---------- EXAMPLE 3 ----------
+// ASSIGN ARRAY ELEMENTS TO VARIABLES
+
+const [firstColor, secondColor, thirdColor, ...extraColors] = colors;
+
+console.log(firstColor);
+console.log(secondColor);
+console.log(thirdColor);
+console.log(extraColors);
+
+// ---------- EXAMPLE 4 ----------
+// EXTRACT VALUES FROM OBJECTS
+
+const person1 = {
+  firstName: 'Spongebob',
+  lastName: 'Squarepants',
+  age: 30,
+  job: "Fry cook",
+};
+
+const person2 = {
+  firstName: 'Patrick',
+  lastName: 'Star',
+  age: 34
+};
+
+const {firstName, lastName, age, job="Unemployed"} = person2;
+
+console.log(firstName);
+console.log(lastName);
+console.log(age);
+console.log(job);
+
+// ---------- EXAMPLE 5 ----------
+// DESTRUCTURING IN FUNCTION PARAMETERS
+
+function displayPerson({ firstName, lastName, age, job="Unemployed" }) {
+    console.log(`name: ${firstName} ${lastName}`);
+    console.log(`age: ${age}`);
+    console.log(`job: ${job}`);
+}
+
+displayPerson(person1);
+displayPerson(person2);
+
+// *************************************************************************************
+
+//JS format currency
+
+let number = 123456.789;
+
+number = number.toLocaleString("en-US");
+number = number.toLocaleString("hi-IN");
+number = number.toLocaleString("de-DE");
+number = number.toLocaleString(undefined);
+
+number = number.toLocaleString("en-US", {style: "currency", currency: "USD"});
+number = number.toLocaleString("hi-IN", {style: "currency", currency: "INR"});
+number = number.toLocaleString("de-DE", {style: "currency", currency: "EUR"});
+
+console.log(number);
+
