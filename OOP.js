@@ -76,3 +76,48 @@ let User = class {
 let mark = new User("Mark", "123456", "mark@mark.com");
 mark.setPass = "123456Mark";
 console.log(mark);
+
+//static method
+
+class Footballer {
+  constructor(name, birthYear, gender) {
+    this.name = name;
+    this.birthYear = birthYear;
+    this.gender = gender;
+  }
+
+  static greet() {
+    console.log("How are you?");
+  }
+
+  calcAge() {
+    console.log(new Date().getFullYear() - this.birthYear);
+  }
+}
+let Trossard = new Footballer("Leonardo", 1995, "Male");
+console.log(Trossard);
+Footballer.greet();
+
+//inheritance
+
+class Goat {
+  constructor(name, age, position) {
+    this.name = name;
+    this.age = age;
+    this.position = position;
+  }
+  showStatus = () => {
+    console.log("You are the GOAT!");
+  };
+}
+
+class Player extends Goat {
+  constructor(name, gender, position, country, age) {
+    super(name, age, position);
+    this.gender = gender;
+    this.country = country;
+  }
+}
+
+let messi = new Player("Messi", "Male", "Striker", "Argentina", 38);
+console.log(messi);
