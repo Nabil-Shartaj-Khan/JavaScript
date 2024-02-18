@@ -107,7 +107,7 @@ class Goat {
     this.position = position;
   }
   showStatus = () => {
-    console.log("You are the GOAT!");
+    console.log(`${this.name} is the GOAT!`);
   };
 }
 
@@ -117,7 +117,11 @@ class Player extends Goat {
     this.gender = gender;
     this.country = country;
   }
+  whoGoat() {
+    this.showStatus();
+  }
 }
 
 let messi = new Player("Messi", "Male", "Striker", "Argentina", 38);
 console.log(messi);
+messi.whoGoat();
